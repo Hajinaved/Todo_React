@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "./security/AuthContext";
 
 export default function LogoutComp() {
+  
   return (
     <>
       <div className="LogoutComp">

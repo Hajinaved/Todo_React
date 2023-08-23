@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Children, useState } from "react";
 import "./todoapp.css";
 import LogoutComp from "./LogoutComponent";
 import HeaderComp from "./HeaderComponent";
@@ -7,7 +7,7 @@ import ErrorComp from "./ErrorComponent";
 import LoginComponent from "./LoginComponent";
 import ListTodo from "./ListtodoComponent";
 import WelcomeComp from "./WelcomeComponent";
-import AuthProvider from "./security/AuthContext";
+import AuthProvider, { useAuth } from "./security/AuthContext";
 import {
   BrowserRouter,
   Routes,
@@ -15,7 +15,18 @@ import {
   useNavigate,
   useParams,
   Link,
+  Navigate,
 } from "react-router-dom";
+
+
+//start from here
+function AuthenticatedRoute({Children}) {
+  const auth = useAuth();
+  if (auth.isUserAuthenticated()) {
+    return Children;
+  }
+  return <Navigate to="/" />; 
+}
 
 export default function Todoapp() {
   return (

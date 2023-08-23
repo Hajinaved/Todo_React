@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import { AuthContext, useAuth } from "./security/AuthContext";
 
 export default function WelcomeComp() {
   const p = useParams();
+/*   const ac = useAuth();
+  console.log(ac);
+  console.log(ac.number); */
 
   return (
     <div className="welcomeCSS">

@@ -30,7 +30,7 @@ export default function ListTodo() {
       isDone: false,
     },
     {
-      id: 1,
+      id: 3,
       title: "C++",
       description: "learn c++ before its too late",
       targetDate: targetDate,
@@ -55,7 +55,7 @@ export default function ListTodo() {
         </thead>
         <tbody>
           {todos.map((todo) => (
-            <tr>
+            <tr key={todo.id}>
               <td>{todo.id}</td>
               <td>{todo.title}</td>
               <td>{todo.description}</td>
